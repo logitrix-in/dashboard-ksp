@@ -1,6 +1,6 @@
 # dashboard_ksp
 
-A new Flutter project.
+ksp dashboard
 
 ## Getting Started
 
