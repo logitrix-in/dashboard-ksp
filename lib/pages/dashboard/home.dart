@@ -1,9 +1,13 @@
+import 'package:dashboard_ksp/constants/fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/ic.dart';
 import 'package:resize/resize.dart';
 
-import '../../colors/colors.dart';
+import 'package:dashboard_ksp/colors/colors.dart';
 
-import '../../components/containers/checkbox.dart';
+import 'package:dashboard_ksp/components/containers/checkbox.dart';
 
 class home extends StatelessWidget {
   const home({super.key});
@@ -11,7 +15,7 @@ class home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Resize(
-      builder:() =>  Scaffold(
+      builder: () => Scaffold(
         body: SingleChildScrollView(
           child: Container(
             color: RichaColors.primary,
@@ -28,70 +32,60 @@ class home extends StatelessWidget {
                     padding: const EdgeInsets.all(15.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         //logo
                         Image.asset("LOGO.png"),
-      
+
                         //Login
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Login",
-                              style: TextStyle(
-                                color: Colors.amber,
-                                fontSize: 25,
-                              ),
-                            ),
-                          ],
-                        ),
-      
+                        Text("Login",
+                            style: ILEMSFonts.primary.copyWith(
+                              fontSize: 1.2.rem,
+                              fontWeight: FontWeight.w100,
+                            )),
+
                         //welcome back
-      
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Welcome back!",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 30,
-                              ),
-                            ),
-                          ],
-                        ),
-      
+
+                        Text("Welcome back!",
+                            style: ILEMSFonts.primary.copyWith(
+                              fontSize: 1.5.rem,
+                              fontWeight: FontWeight.w100,
+                            )),
+                        const Gap(10),
+
                         //email Address Box
-                        const TextField(
+                        TextField(
                           decoration: InputDecoration(
-                              border: OutlineInputBorder(),
+                              border: const OutlineInputBorder(),
                               hintText: 'Email Address',
-                              prefixIcon: Visibility(
-                                  visible: true,
-                                  child: Icon(Icons.email_outlined,
-                                      color: Colors.grey))),
+                              prefixIcon: Container(
+                                  padding: const EdgeInsets.all(8),
+                                  // color: Colors.red,
+                                  child: const Iconify(
+                                    Ic.sharp_alternate_email,
+                                    color: Colors.grey,
+                                    
+                                  )),),
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
+                        const Gap(10),
+
                         //password
-                        const TextField(
+                         TextField(
                           decoration: InputDecoration(
-                              border: OutlineInputBorder(),
+                              border: const OutlineInputBorder(),
                               hintText: 'Password',
-                              prefixIcon: Visibility(
-                                visible: true,
-                                child: Icon(
-                                  Icons.lock,
-                                  color: Colors.grey,
-                                ),
+                              prefixIcon: Container(
+                                  padding: const EdgeInsets.all(8),
+
+                                child: const Iconify(
+                                      Ic.round_password,
+                                      color: Colors.grey,
+                                      
+                                    ),
                               ),
-                              suffixIcon: Visibility(
-                                visible: true,
-                                child: Icon(
-                                  Icons.visibility,
-                                  color: Colors.grey,
-                                ),
+                              suffixIcon: const Icon(
+                                Icons.visibility,
+                                color: Colors.grey,
                               )),
                         ),
                         //remember me/ forgot password
@@ -120,25 +114,28 @@ class home extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-      
+
                         //i agree terms checkox
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                         Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CheckboxExample(),
-                            Text(
-                              "I agree to the Terms and Conditions and Privacy Policy",
-                              style: TextStyle(
-                                color: Colors.black,
+                            Container(
+                              // color: Colors.red,
+                              
+                              child: Text(
+                                "I agree to the Terms and Conditions and Privacy Policy",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
                               ),
                             )
                           ],
                         ),
-      
+
                         //login
-                        const SizedBox(
-                          height: 15,
-                        ),
+                        Gap(10),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             textStyle: const TextStyle(fontSize: 20),
@@ -146,8 +143,8 @@ class home extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 180, vertical: 20),
+                            padding: EdgeInsets.symmetric(vertical: 20)
+                            
                           ),
                           onPressed: () {},
                           child: const Text(
