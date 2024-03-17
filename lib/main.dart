@@ -1,4 +1,4 @@
-import 'package:dashboard_ksp/dashboard/home.dart';
+import 'package:dashboard_ksp/pages/dashboard/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
