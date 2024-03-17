@@ -62,9 +62,12 @@ class home extends StatelessWidget {
                       //email Address Box
                       const TextField(
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Email Address',
-                        ),
+                            border: OutlineInputBorder(),
+                            hintText: 'Email Address',
+                            prefixIcon: Visibility(
+                                visible: true,
+                                child: Icon(Icons.email_outlined,
+                                    color: Colors.grey))),
                       ),
                       const SizedBox(
                         height: 10,
@@ -72,9 +75,22 @@ class home extends StatelessWidget {
                       //password
                       const TextField(
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Password',
-                        ),
+                            border: OutlineInputBorder(),
+                            hintText: 'Password',
+                            prefixIcon: Visibility(
+                              visible: true,
+                              child: Icon(
+                                Icons.lock,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            suffixIcon: Visibility(
+                              visible: true,
+                              child: Icon(
+                                Icons.visibility,
+                                color: Colors.grey,
+                              ),
+                            )),
                       ),
                       //remember me/ forgot password
                       const Row(
