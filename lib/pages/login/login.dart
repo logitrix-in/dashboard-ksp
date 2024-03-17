@@ -1,6 +1,8 @@
 import 'package:dashboard_ksp/constants/fonts.dart';
+import 'package:dashboard_ksp/routes/endpoints.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ic.dart';
 import 'package:resize/resize.dart';
@@ -9,8 +11,8 @@ import 'package:dashboard_ksp/colors/colors.dart';
 
 import 'package:dashboard_ksp/components/containers/checkbox.dart';
 
-class home extends StatelessWidget {
-  const home({super.key});
+class Login extends StatelessWidget {
+  const Login({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +148,9 @@ class home extends StatelessWidget {
                             padding: EdgeInsets.symmetric(vertical: 20)
                             
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed(Endpoints.home);
+                          },
                           child: const Text(
                             'Login',
                             style: TextStyle(
@@ -160,23 +164,37 @@ class home extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Don't have an account?",
-                              style: TextStyle(
-                                color: Colors.grey,
-                              ),
-                            ),
-                            Text(
-                              "Sign up",
-                              style: TextStyle(
-                                color: Colors.red,
-                              ),
-                            )
-                          ],
-                        ),
+                        // const Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     Text(
+                        //       "Don't have an account?",
+                        //       style: TextStyle(
+                        //         color: Colors.grey,
+                        //       ),
+                        //     ),
+                        //     Text(
+                        //       "Sign up",
+                        //       style: TextStyle(
+                        //         color: Colors.red,
+                        //       ),
+                        //     )
+                        //   ],
+                        // ),
+
+                        Center(
+                          child: Text.rich(TextSpan(
+                            text: "Don't Have an Account?",
+                            children: [
+                              TextSpan(
+                                text: "Sign Up",
+                                style: TextStyle(
+                                  color: Colors.red,
+                                ),
+                              )
+                            ],
+                          )),
+                        )
                       ],
                     ),
                   ),

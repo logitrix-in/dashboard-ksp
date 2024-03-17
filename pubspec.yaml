@@ -39,6 +39,9 @@ dependencies:
   google_fonts: 6.1.0
   gap:
   iconify_flutter: ^0.0.5
+  get:
+  date_field: ^4.0.1
+  syncfusion_flutter_charts: ^25.1.35
 
 dev_dependencies:
   flutter_test:

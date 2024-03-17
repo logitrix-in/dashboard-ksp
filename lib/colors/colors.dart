@@ -11,6 +11,9 @@ class RichaColors{
   static const Color primary3 = Color.fromRGBO(228, 1, 1, 1);
   static const Color primary4 = Color.fromRGBO(252, 134, 134, 1);
   static const Color primary5 = Color.fromRGBO(42, 5, 86, 1);  
+
+
+  static const Color secondary = Color(0xFFA3A3A3);
 }
 
 
