@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dashboard_ksp/colors/colors.dart';
 
 class CheckboxExample extends StatefulWidget {
   const CheckboxExample({super.key});
@@ -19,13 +20,15 @@ class _CheckboxExampleState extends State<CheckboxExample> {
         MaterialState.focused,
       };
       if (states.any(interactiveStates.contains)) {
-        return Colors.blue;
+        // transparent color
+        return RichaColors.primary.withOpacity(0.5);
       }
-      return Colors.red;
+      return RichaColors.primary;
     }
 
     return Checkbox(
       checkColor: Colors.white,
+      // white color
       fillColor: MaterialStateProperty.resolveWith(getColor),
       value: isChecked,
       onChanged: (bool? value) {
