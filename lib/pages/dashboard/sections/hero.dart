@@ -2,7 +2,10 @@ import 'package:dashboard_ksp/colors/colors.dart';
 import 'package:dashboard_ksp/constants/fonts.dart';
 import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
+import 'package:iconify_flutter/icons/mdi.dart';
 import 'package:resize/resize.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -46,7 +49,7 @@ class DashboardHero extends StatelessWidget {
                                     color: Colors.black,
                                     fontSize: 1.5.rem,
                                     fontWeight: FontWeight.w600))
-                          ])),
+                          ])).animate().fade(),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.1,
                         child: DateTimeFormField(
@@ -54,7 +57,7 @@ class DashboardHero extends StatelessWidget {
                           decoration: const InputDecoration(
                               labelText: "Enter Date",
                               border: OutlineInputBorder()),
-                        ),
+                        ).animate().fade(),
                       )
                     ],
                   ),
@@ -420,7 +423,7 @@ class DashboardHero extends StatelessWidget {
                                         ))
                                   ],
                                 ),
-                                Gap(5),
+                                const Gap(5),
                                 Expanded(
                                   child: Container(
                                     width: MediaQuery.of(context).size.width/4,
@@ -437,23 +440,87 @@ class DashboardHero extends StatelessWidget {
                                       Container(
                                         height: 50,
                                         decoration: BoxDecoration(
-                                        color: Color(0xFFF9D4B9),
+                                        color: const Color(0xFFF9D4B9),
                                           borderRadius: BorderRadius.circular(5)
                                         ),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Stack(
+                                              alignment: Alignment.center,
+                                              children: [
+                                                Iconify(Mdi.reload,size: 90,color: Color(0xFFFFFFFF).withOpacity(0.3),),
+                                                Text("24",style: ILEMSFonts.primary.copyWith(
+                                                  fontSize: 50,
+                                                  fontWeight: FontWeight.w900
+                                                ),)
+                                              ],
+                                            ),
+                                            Text("Pending",style: ILEMSFonts.primary.copyWith(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w600
+                                            ),)
+                                          ],
+                                        ),
+                                      
+                                        
                                       ),
                                       Container(
                                         height: 50,
                                         decoration: BoxDecoration(
-                                        color: Color(0xFF69B8F1),
+                                        color: const Color(0xFF69B8F1),
                                           borderRadius: BorderRadius.circular(5)
                                         ),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Stack(
+                                              alignment: Alignment.center,
+                                              children: [
+                                                Iconify(Mdi.calendar_clock,size: 90,color: Color(0xFFFFFFFF).withOpacity(0.3),),
+                                                Text("12",style: ILEMSFonts.primary.copyWith(
+                                                  fontSize: 50,
+                                                  fontWeight: FontWeight.w900
+                                                ),)
+                                              ],
+                                            ),
+                                            Text("Active",style: ILEMSFonts.primary.copyWith(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w600
+                                            ),)
+                                          ],
+                                        ),
+                                      
                                       ),
                                       Container(
                                         height: 50,
                                         decoration: BoxDecoration(
-                                        color: Color(0xFFFD4F0A6),
+                                        color: const Color(0xFFFD4F0A6),
                                           borderRadius: BorderRadius.circular(5)
                                         ),
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.center,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Stack(
+                                              alignment: Alignment.center,
+                                              children: [
+                                                Iconify(Mdi.calendar_clock,size: 90,color: Color(0xFFFFFFFF).withOpacity(0.3),),
+                                                Text("5",style: ILEMSFonts.primary.copyWith(
+                                                  fontSize: 50,
+                                                  fontWeight: FontWeight.w900
+                                                ),)
+                                              ],
+                                            ),
+                                            Text("Past",style: ILEMSFonts.primary.copyWith(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w600
+                                            ),)
+                                          ],
+                                        ),
+                                      
                                       ),
                                       
 
@@ -467,7 +534,7 @@ class DashboardHero extends StatelessWidget {
                         )
                       ],
                     ),
-                  )
+                  ).animate().fade()
                 ],
               ),
             ));

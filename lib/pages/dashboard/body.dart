@@ -1,4 +1,5 @@
 import 'package:dashboard_ksp/pages/dashboard/sections/hero.dart';
+import 'package:dashboard_ksp/pages/dashboard/sections/noOfIncidents.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -52,6 +53,7 @@ class DashboardBody extends StatelessWidget {
               child: Column(
                 children: [
                   DashboardHero(),
+                  NoIncidents()
                 ],
               ),
             ))
