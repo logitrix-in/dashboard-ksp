@@ -11,11 +11,15 @@ class NoIncidents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<SalesData> chartData = [
-            SalesData(2010, 35),
+            SalesData(2010, 5),
             SalesData(2011, 28),
-            SalesData(2012, 34),
-            SalesData(2013, 32),
-            SalesData(2014, 40)
+            SalesData(2012, 100),
+            SalesData(2013, 50),
+            SalesData(2014, 30),
+            
+
+            SalesData(2021, 30)
+
         ];
     return Resize(
       builder: () =>  Container(
