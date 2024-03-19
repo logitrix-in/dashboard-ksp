@@ -41,6 +41,7 @@ dependencies:
   iconify_flutter: ^0.0.5
   get:
   date_field: ^4.0.1
+  flutter_animate:
   syncfusion_flutter_charts: ^25.1.35
   
 dev_dependencies:
