@@ -43,6 +43,7 @@ dependencies:
   date_field: ^4.0.1
   flutter_animate:
   syncfusion_flutter_charts: ^25.1.35
+  animated_flip_counter: ^0.2.6
   
 dev_dependencies:
   flutter_test:
