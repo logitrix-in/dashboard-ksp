@@ -252,6 +252,7 @@ class NoIncidents extends StatelessWidget {
                   Container(
                     width: MediaQuery.of(context).size.width,
                     child: SfCartesianChart(
+                      tooltipBehavior: TooltipBehavior(enable: true),
                       
                       series: [
                         SplineSeries<SalesData, int>(

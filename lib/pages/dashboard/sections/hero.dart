@@ -1,3 +1,4 @@
+import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:dashboard_ksp/colors/colors.dart';
 import 'package:dashboard_ksp/constants/fonts.dart';
 import 'package:date_field/date_field.dart';
@@ -296,9 +297,12 @@ class DashboardHero extends StatelessWidget {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  Text(
-                                                    "45",
-                                                    style: ILEMSFonts.primary
+                                                  AnimatedFlipCounter(
+                                                    curve: Curves.easeIn,
+                                                    
+                                                    duration: Duration(milliseconds: 500),
+                                                    value:45,
+                                                    textStyle: ILEMSFonts.primary
                                                         .copyWith(
                                                             color: Colors.black,
                                                             fontSize: 2.5.rem,
