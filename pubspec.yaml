@@ -42,7 +42,7 @@ dependencies:
   get:
   date_field: ^4.0.1
   syncfusion_flutter_charts: ^25.1.35
-
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
