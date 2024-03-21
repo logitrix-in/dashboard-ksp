@@ -1,113 +1,97 @@
+import 'package:dashboard_ksp/pages/dashboard/controllers/crimeFrequencyController.dart';
+import 'package:date_field/date_field.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class CrimeFrequency extends StatelessWidget {
+class CrimeFrequency extends StatefulWidget {
   const CrimeFrequency({super.key});
 
   @override
+  State<CrimeFrequency> createState() => _CrimeFrequencyState();
+}
+
+class _CrimeFrequencyState extends State<CrimeFrequency> {
+  TextEditingController _controller = TextEditingController();
+
+    Future<void> _selectYear(BuildContext context) async {
+      
+    }
+  @override
   Widget build(BuildContext context) {
-    List<_ChartData> data = [
-      _ChartData('Jan', 12),
-      _ChartData('Feb', 15),
-      _ChartData('Mar', 30),
-      _ChartData('Apr', 6.4),
-      _ChartData('May', 14),
-      _ChartData('Jun', 14),
-      _ChartData('Jul', 14),
-      _ChartData('Aug', 14),
-      
-      _ChartData('Sep', 14),
-      _ChartData('Oct', 14),
-      _ChartData('Nov', 14),
-      _ChartData('Dec', 14),
-    ];
-    List<_ChartData> data1 = [
-      _ChartData('Jan', 12),
-      _ChartData('Feb', 15),
-      _ChartData('Mar', 30),
-      _ChartData('Apr', 6.4),
-      _ChartData('May', 14),
-      _ChartData('Jun', 14),
-      _ChartData('Jul', 14),
-      _ChartData('Aug', 14),
-      
-      _ChartData('Sep', 14),
-      _ChartData('Oct', 14),
-      _ChartData('Nov', 14),
-      _ChartData('Dec', 14),
-    ];
-    List<_ChartData> data2 = [
-     _ChartData('Jan', 12),
-      _ChartData('Feb', 15),
-      _ChartData('Mar', 30),
-      _ChartData('Apr', 6.4),
-      _ChartData('May', 14),
-      _ChartData('Jun', 14),
-      _ChartData('Jul', 14),
-      _ChartData('Aug', 14),
-      
-      _ChartData('Sep', 14),
-      _ChartData('Oct', 14),
-      _ChartData('Nov', 14),
-      _ChartData('Dec', 14),
-    ];
-    List<_ChartData> data3 = [
-      _ChartData('Jan', 12),
-      _ChartData('Feb', 15),
-      _ChartData('Mar', 30),
-      _ChartData('Apr', 6.4),
-      _ChartData('May', 14),
-      _ChartData('Jun', 14),
-      _ChartData('Jul', 14),
-      _ChartData('Aug', 14),
-      
-      _ChartData('Sep', 14),
-      _ChartData('Oct', 14),
-      _ChartData('Nov', 14),
-      _ChartData('Dec', 14),
-    ];
-    return Container(
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        border: Border.all(
-          color: Color(0xFFE5E5E5),
-          style: BorderStyle.solid,
-          width: 1.2
-        )
-      ),
-      child: SfCartesianChart(
-        legend: Legend(isVisible: true, position: LegendPosition.bottom,isResponsive: true,alignment: ChartAlignment.center,),
-          primaryXAxis: CategoryAxis(),
-          primaryYAxis: NumericAxis(minimum: 0, maximum: 100, interval: 10),
-          tooltipBehavior: TooltipBehavior(enable: true),
-          series: <CartesianSeries<_ChartData, String>>[
-            ColumnSeries<_ChartData, String>(
-                dataSource: data,
-                xValueMapper: (_ChartData data, _) => data.x,
-                yValueMapper: (_ChartData data, _) => data.y,
-                name: 'Theft',
-                color: Color(0xFFB56E6E)),
-            ColumnSeries<_ChartData, String>(
-                dataSource: data1,
-                xValueMapper: (_ChartData data, _) => data.x,
-                yValueMapper: (_ChartData data, _) => data.y,
-                name: 'Assault',
-                color: Color(0xFF61BA7A)),
-            ColumnSeries<_ChartData, String>(
-                dataSource: data2,
-                xValueMapper: (_ChartData data, _) => data.x,
-                yValueMapper: (_ChartData data, _) => data.y,
-                name: 'Burglary',
-                color: Color(0xFF6F5BA7)),
-            ColumnSeries<_ChartData, String>(
-                dataSource: data3,
-                xValueMapper: (_ChartData data, _) => data.x,
-                yValueMapper: (_ChartData data, _) => data.y,
-                name: 'Drug Possession',
-                color: Color(0xFFE39E1A))
-          ]),
     
+
+    return GetBuilder(
+      init: CrimeFrequencyController(),
+      builder: (controller) => Container(
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            border: Border.all(
+                color: const Color(0xFFE5E5E5),
+                style: BorderStyle.solid,
+                width: 1.2)),
+        child: Obx(() => controller.isReady.value
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextFormField(
+                    controller: _controller,
+                    decoration: const InputDecoration(
+                      labelText: 'Year',
+                      border: OutlineInputBorder(),
+                    ),
+                    readOnly: true,
+                    onTap: () async{
+                     final DateTime? picked = await showDatePicker(
+        initialEntryMode: DatePickerEntryMode.calendarOnly,
+
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(1900),
+        lastDate: DateTime(2101),
+        initialDatePickerMode: DatePickerMode.year,
+        // This will force the calendar to display in year-only mode
+        helpText: 'SELECT A YEAR', // Can be customized as per the need
+      );
+      if (picked != null)
+        
+        setState(() {
+          _controller.text = DateFormat('yyyy').format(picked);
+          controller.currentYear.value=int.parse(_controller.text);
+                      controller.isReady.value=false;
+                      controller.getMonthWiseAnalytics();
+          
+        });
+                      
+                      
+                    },
+                  ),
+                  Gap(10),
+                  SfCartesianChart(
+                      enableAxisAnimation: true,
+                      zoomPanBehavior: ZoomPanBehavior(
+                          enablePinching: true,
+                          enablePanning: true,
+                          enableMouseWheelZooming: true,
+                          enableDoubleTapZooming: true),
+                      legend: const Legend(
+                        isVisible: true,
+                        position: LegendPosition.bottom,
+                        isResponsive: true,
+                        alignment: ChartAlignment.center,
+                        overflowMode: LegendItemOverflowMode.wrap,
+                      ),
+                      primaryXAxis: const CategoryAxis(),
+                      primaryYAxis: const NumericAxis(minimum: 0),
+                      tooltipBehavior: TooltipBehavior(enable: true),
+                      series: controller.monthlyDataSeries),
+                ],
+              )
+            : const CircularProgressIndicator()),
+      ),
     );
   }
 }

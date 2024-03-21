@@ -141,11 +141,14 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                         width: MediaQuery.of(context).size.width,
                         // height: 30.rem,
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          
                           children: [
                             Expanded(
                                 child: Container(
-                              // color: Colors.red,
+                              
                               child: Column(
+                                mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
                                     width: MediaQuery.of(context).size.width,
