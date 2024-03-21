@@ -45,7 +45,8 @@ dependencies:
   syncfusion_flutter_charts: ^25.1.35
   animated_flip_counter: ^0.2.6
   syncfusion_flutter_maps: ^25.1.35
-  
+  dio:
+  loading_animation_widget: ^1.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

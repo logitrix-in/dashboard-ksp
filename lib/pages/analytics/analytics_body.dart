@@ -566,9 +566,9 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                                               karnatakaData[index].district,
                                             ),
                                             Text(karnatakaData[index].districtCode,style: ILEMSFonts.primary.copyWith(
-                                              fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.w900,
                                               color: karnatakaData[index].color,
-                                              fontSize: 1.4.rem
+                                              fontSize: 1.4.rem,
                                             ),)
                                           ],
                                         ),
@@ -606,14 +606,14 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                                     shapeColorValueMapper: (int index) =>
                                         westBengalData[index].color,
                                   ),
-                                  legend: MapLegend(
-                                    MapElement.shape,
-                                    position: MapLegendPosition.bottom,
-                                    padding: EdgeInsets.all(10),
-                                    enableToggleInteraction: true,
+                                  // legend: MapLegend(
+                                  //   MapElement.shape,
+                                  //   position: MapLegendPosition.bottom,
+                                  //   padding: EdgeInsets.all(10),
+                                  //   enableToggleInteraction: true,
                                     
                                     
-                                  ),
+                                  // ),
                                   showDataLabels: true,
                                   shapeTooltipBuilder:
                                       (BuildContext context, int index) {
