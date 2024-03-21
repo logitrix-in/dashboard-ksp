@@ -520,6 +520,24 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                               color: Colors.white,
                               child: this.isReady?SfMaps(layers: [
                                 MapShapeLayer(
+                                  markerBuilder: (context, index) {
+                                    return MapMarker(
+                                      latitude: 12.9716,
+                                      longitude: 77.5946,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: Colors.red,
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        padding: const EdgeInsets.all(5),
+                                        child: Text(
+                                          "Bangalore",
+                                          style: ILEMSFonts.primary,
+                                        ),
+                                      ),
+                                    );
+                                  
+                                  },
                                   source: MapShapeSource.asset(
                                     "assets/map/karnataka.json",
                                     shapeDataField: "district",
@@ -527,20 +545,32 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                                     primaryValueMapper: (int index) =>
                                         karnatakaData[index].district,
                                     dataLabelMapper: (int index) =>
-                                        karnatakaData[index].districtCode,
+                                        karnatakaData[index].district,
                                     shapeColorValueMapper: (int index) =>
                                         karnatakaData[index].color,
                                   ),
-                                  legend: const MapLegend(MapElement.shape),
+                                  // legend: const MapLegend(MapElement.shape),
                                   showDataLabels: true,
                                   shapeTooltipBuilder:
                                       (BuildContext context, int index) {
                                     return Padding(
                                       padding: const EdgeInsets.all(7),
                                       child: Container(
+                                        width: 8.rem,
+                                        height: 4.rem,
                                         color: Colors.white,
-                                        child: Text(
-                                          karnatakaData[index].district,
+                                        child: Column(
+                                          children: [
+
+                                            Text(
+                                              karnatakaData[index].district,
+                                            ),
+                                            Text(karnatakaData[index].districtCode,style: ILEMSFonts.primary.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color: karnatakaData[index].color,
+                                              fontSize: 1.4.rem
+                                            ),)
+                                          ],
                                         ),
                                       ),
                                     );
@@ -552,7 +582,10 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                                   strokeColor: Colors.white,
                                   strokeWidth: 0.5,
                                   dataLabelSettings: MapDataLabelSettings(
-                                      textStyle: ILEMSFonts.primary),
+                                    overflowMode: MapLabelOverflow.ellipsis,
+                                      textStyle: ILEMSFonts.primary.copyWith(
+                                        fontSize: 0.6.rem
+                                      )),
                                 ),
                               ]):CircularProgressIndicator(),
                             )),
@@ -569,20 +602,39 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                                     primaryValueMapper: (int index) =>
                                         westBengalData[index].district,
                                     dataLabelMapper: (int index) =>
-                                        westBengalData[index].districtCode,
+                                        westBengalData[index].district,
                                     shapeColorValueMapper: (int index) =>
                                         westBengalData[index].color,
                                   ),
-                                  legend: const MapLegend(MapElement.shape),
+                                  legend: MapLegend(
+                                    MapElement.shape,
+                                    position: MapLegendPosition.bottom,
+                                    padding: EdgeInsets.all(10),
+                                    enableToggleInteraction: true,
+                                    
+                                    
+                                  ),
                                   showDataLabels: true,
                                   shapeTooltipBuilder:
                                       (BuildContext context, int index) {
                                     return Padding(
                                       padding: const EdgeInsets.all(7),
                                       child: Container(
+                                        width: 8.rem,
+                                        height: 4.rem,
                                         color: Colors.white,
-                                        child: Text(
-                                          westBengalData[index].district,
+                                        child: Column(
+                                          children: [
+
+                                            Text(
+                                              westBengalData[index].district,
+                                            ),
+                                            Text(westBengalData[index].districtCode,style: ILEMSFonts.primary.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color: westBengalData[index].color,
+                                              fontSize: 1.4.rem
+                                            ),)
+                                          ],
                                         ),
                                       ),
                                     );
@@ -594,7 +646,10 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                                   strokeColor: Colors.white,
                                   strokeWidth: 0.5,
                                   dataLabelSettings: MapDataLabelSettings(
-                                      textStyle: ILEMSFonts.primary),
+                                    overflowMode: MapLabelOverflow.ellipsis,
+                                      textStyle: ILEMSFonts.primary.copyWith(
+                                        fontSize: 0.6.rem
+                                      )),
                                 ),
                               ]):CircularProgressIndicator(),
                             )),
@@ -611,20 +666,32 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                                     primaryValueMapper: (int index) =>
                                         MHData[index].district,
                                     dataLabelMapper: (int index) =>
-                                        MHData[index].districtCode,
+                                        MHData[index].district,
                                     shapeColorValueMapper: (int index) =>
                                         MHData[index].color,
                                   ),
-                                  legend: const MapLegend(MapElement.shape),
+                                  // legend: const MapLegend(MapElement.shape),
                                   showDataLabels: true,
                                   shapeTooltipBuilder:
                                       (BuildContext context, int index) {
                                     return Padding(
                                       padding: const EdgeInsets.all(7),
                                       child: Container(
+                                        width: 8.rem,
+                                        height: 4.rem,
                                         color: Colors.white,
-                                        child: Text(
-                                          MHData[index].district,
+                                        child: Column(
+                                          children: [
+
+                                            Text(
+                                              MHData[index].district,
+                                            ),
+                                            Text(MHData[index].districtCode,style: ILEMSFonts.primary.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color: MHData[index].color,
+                                              fontSize: 1.4.rem
+                                            ),)
+                                          ],
                                         ),
                                       ),
                                     );
@@ -636,7 +703,10 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                                   strokeColor: Colors.white,
                                   strokeWidth: 0.5,
                                   dataLabelSettings: MapDataLabelSettings(
-                                      textStyle: ILEMSFonts.primary),
+                                    overflowMode: MapLabelOverflow.ellipsis,
+                                      textStyle: ILEMSFonts.primary.copyWith(
+                                        fontSize: 0.6.rem
+                                      )),
                                 ),
                               ]):CircularProgressIndicator(),
                             )),
