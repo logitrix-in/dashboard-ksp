@@ -30,14 +30,17 @@ class NoIncidents extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
       
           children: [
             Expanded(child: Container(
               color: Colors.white,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    
                     children: [
                       Text("Total Number of Incidents Reported:",style: ILEMSFonts.primary.copyWith(
                         fontSize: 20,
@@ -53,34 +56,38 @@ class NoIncidents extends StatelessWidget {
                     ],
                   ),
                   const Gap(10),
-                  Row(
-                    children: [
-                      ActionChip(
-                        backgroundColor: const Color(0xFFF8C835),
-                        side: BorderSide.none,
-                        label: Text("Law & Order",style: ILEMSFonts.primary,),onPressed: () {
-                        
-                      },).animate().fade(),
-                      const Gap(10),
-                      ActionChip(label: Text("Crime",style: ILEMSFonts.primary,),onPressed: () {
-                        
-                      },).animate().fade(),
-                      const Gap(10),
-      
-                      ActionChip(label: Text("Station Management",style: ILEMSFonts.primary,),onPressed: () {
-                        
-                      },).animate().fade(),
-                      const Gap(10),
-      
-                      ActionChip(label: Text("Investigation",style: ILEMSFonts.primary,),onPressed: () {
-                        
-                      },),
-                      const Gap(10),
-      
-                      ActionChip(label: Text("Court Monitoring",style: ILEMSFonts.primary,),onPressed: () {
-                        
-                      },).animate().fade()
-                    ],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ActionChip(
+                          backgroundColor: const Color(0xFFF8C835),
+                          side: BorderSide.none,
+                          label: Text("Law & Order",style: ILEMSFonts.primary,),onPressed: () {
+                          
+                        },).animate().fade(),
+                        const Gap(10),
+                        ActionChip(label: Text("Crime",style: ILEMSFonts.primary,),onPressed: () {
+                          
+                        },).animate().fade(),
+                        const Gap(10),
+                          
+                        ActionChip(label: Text("Station Management",style: ILEMSFonts.primary,),onPressed: () {
+                          
+                        },).animate().fade(),
+                        const Gap(10),
+                          
+                        ActionChip(label: Text("Investigation",style: ILEMSFonts.primary,),onPressed: () {
+                          
+                        },),
+                        const Gap(10),
+                          
+                        ActionChip(label: Text("Court Monitoring",style: ILEMSFonts.primary,),onPressed: () {
+                          
+                        },).animate().fade()
+                      ],
+                    ),
                   ),
                   const Gap(20),
                   Card(

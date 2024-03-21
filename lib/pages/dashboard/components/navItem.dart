@@ -1,6 +1,7 @@
 import 'package:dashboard_ksp/colors/colors.dart';
 import 'package:dashboard_ksp/constants/fonts.dart';
 import 'package:dashboard_ksp/pages/dashboard/controllers/navItemController.dart';
+import 'package:dashboard_ksp/routes/endpoints.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
@@ -29,6 +30,8 @@ class NavItem extends StatelessWidget {
                       ListTile(
                         onTap: () {
                           controller.updateIndex(0);
+                          Get.toNamed(Endpoints.home);
+
                         },
                         leading: Icon(
                           Icons.dashboard,
@@ -48,6 +51,7 @@ class NavItem extends StatelessWidget {
                       ListTile(
                         onTap: () {
                           controller.updateIndex(1);
+                          Get.toNamed(Endpoints.analytics);
                         },
                         leading: Icon(
                           Icons.analytics_outlined,
