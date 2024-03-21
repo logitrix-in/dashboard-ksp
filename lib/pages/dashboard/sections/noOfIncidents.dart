@@ -30,14 +30,17 @@ class NoIncidents extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
       
           children: [
             Expanded(child: Container(
               color: Colors.white,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    
                     children: [
                       Text("Total Number of Incidents Reported:",style: ILEMSFonts.primary.copyWith(
                         fontSize: 20,
@@ -56,6 +59,7 @@ class NoIncidents extends StatelessWidget {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         ActionChip(
                           backgroundColor: const Color(0xFFF8C835),
