@@ -9,6 +9,7 @@ import 'package:dashboard_ksp/pages/analytics/crime_frequency.dart';
 import 'package:dashboard_ksp/pages/analytics/crime_trend_analysis.dart';
 import 'package:dashboard_ksp/pages/analytics/fir_identification_and_unit_analysis.dart';
 import 'package:dashboard_ksp/pages/analytics/fir_processing_chart.dart';
+import 'package:dashboard_ksp/pages/analytics/victim_and_accused_counts.dart';
 import 'package:dashboard_ksp/pages/analytics/victim_counts_by_age_group.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -341,12 +342,15 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                       const Gap(10),
                       Container(
                         width: MediaQuery.of(context).size.width,
+                        // color: Colors.red,
                         // height: 30.rem,
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          // mainAxisSize: MainAxisSize.min,
                           children: [
                             Expanded(
                                 child: Container(
-                              //color: Colors.red,
+                              // color: Colors.blue,
                               child: Column(
                                 children: [
                                   Container(
@@ -438,6 +442,9 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                                 child: Container(
                               // color: Colors.red,
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
                                     width: MediaQuery.of(context).size.width,
@@ -474,7 +481,7 @@ class _AnalyticsBodyState extends State<AnalyticsBody> {
                                     ),
                                   ),
                                   const Gap(10),
-                                  const CrimeFrequency()
+                                  const VictimeAndAccusedCounts()
                                 ],
                               ),
                             ))
